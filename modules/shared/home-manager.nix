@@ -57,6 +57,8 @@ let name = "Sven Lito";
       export EDITOR="vim"
       export VISUAL="code"
 
+      export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
       # Always color ls and group directories
       alias ls='ls --color=auto'
       alias c='clear'
@@ -104,7 +106,8 @@ let name = "Sven Lito";
     extraConfig = {
       init.defaultBranch = "main";
       core = { 
-	    editor = "vim";
+        pager = "diff-so-fancy | less --tabs=2 -RFX";
+        editor = "vim";
         autocrlf = "input";
       };
       pull.rebase = true;
@@ -117,9 +120,20 @@ let name = "Sven Lito";
 
     extraConfig = lib.mkMerge [
       ''
+        Host snocko-vm
+          HostName 13.228.251.47
+          User svenlito
+          Port 22
+          Compression yes
+      ''
+      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 
+        ''
         Host *
           IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-      ''
+          ForwardX11Trusted yes
+          ForwardX11 yes
+          ForwardAgent yes
+        '')
     ];
   };
 
