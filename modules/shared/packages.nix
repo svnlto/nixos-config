@@ -46,10 +46,4 @@ with pkgs; [
   tree
   unrar
   unzip
-  pre-commit
-  tfswitch
-  tflint
-  spaceship-prompt
-  diff-so-fancy
-  eza
 ]

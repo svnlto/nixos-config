@@ -22,16 +22,6 @@ in
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
-
-    # These app IDs are from using the mas CLI app
-    # mas = mac app store
-    # https://github.com/mas-cli/mas
-    #
-    # $ nix shell nixpkgs#mas
-    # $ mas search <app name>
-    #
-    masApps = {
-    };
   };
 
   # Enable home-manager
@@ -58,9 +48,11 @@ in
   # Fully declarative dock using the latest from Nix Store
   local.dock.enable = true;
   local.dock.entries = [
-    { path = "/Applications/Slack.app/"; }
-    { path = "/System/Applications/Messages.app/"; }
     { path = "/Applications/Visual Studio Code.app/"; }
+    { path = "/Applications/iTerm.app/"; }
+    { path = "/Applications/Slack.app/"; }
+    { path = "/Applications/Telegram.app/"; }
+    { path = "/System/Applications/Messages.app/"; }
   ];
 
 }
