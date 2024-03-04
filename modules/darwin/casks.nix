@@ -10,4 +10,5 @@ _:
   "spotify"
   "orbstack"
   "1password"
+  "gather"
 ]
