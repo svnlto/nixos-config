@@ -1,7 +1,7 @@
 { config, pkgs, lib, home-manager, ... }:
 
 let
-  user = "sven";
+  user = "svenlito";
   # Define the content of your file as a derivation
   sharedFiles = import ../shared/files.nix { inherit config pkgs; };
   additionalFiles = import ./files.nix { inherit user config pkgs; };
@@ -31,7 +31,6 @@ in
     # $ mas search <app name>
     #
     masApps = {
-      "1password" = 1333542190;
     };
   };
 
@@ -61,7 +60,7 @@ in
   local.dock.entries = [
     { path = "/Applications/Slack.app/"; }
     { path = "/System/Applications/Messages.app/"; }
-    { path = "/System/Applications/Visual Studio Code.app/"; }
+    { path = "/Applications/Visual Studio Code.app/"; }
   ];
 
 }

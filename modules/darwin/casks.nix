@@ -9,4 +9,5 @@ _:
   "google-chrome"
   "spotify"
   "orbstack"
+  "1password"
 ]

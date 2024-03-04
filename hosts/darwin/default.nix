@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let user = "sven"; in
+let user = "svenlito"; in
 
 {
 

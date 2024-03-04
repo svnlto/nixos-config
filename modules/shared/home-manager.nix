@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let name = "Sven Lito";
-    user = "sven";
+    user = "svenlito";
     email = "me@svenlito.com"; in
 {
   # Shared shell configuration
@@ -82,8 +82,14 @@ let name = "Sven Lito";
         char          # Prompt character
       )
 
-      alias vim=nvim
-      alias tf=terraform
+      alias vim='nvim'
+      alias t='terraform'
+      alias ll='eza -alF --color=always --sort=size'
+      alias la='eza -A --color=always'
+      alias l='eza -l --color=always'
+      alias c='clear'
+      alias h='history'
+
     '';
   };
 
@@ -111,21 +117,9 @@ let name = "Sven Lito";
 
     extraConfig = lib.mkMerge [
       ''
-        Host github.com
-          Hostname github.com
-          IdentitiesOnly yes
-
         Host *
           IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       ''
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-        ''
-          IdentityFile /home/${user}/.ssh/id_github
-        '')
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-        ''
-          IdentityFile /Users/${user}/.ssh/id_github
-        '')
     ];
   };
 
