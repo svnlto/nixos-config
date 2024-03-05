@@ -60,6 +60,15 @@ let user = "svenlito"; in
         "com.apple.sound.beep.feedback" = 0;
       };
 
+      menuExtraClock = {
+        Show24Hour = false;
+        IsAnalog = false;
+        ShowAMPM = false;
+        ShowDayOfMonth = true;
+        ShowDayOfWeek = true;
+        ShowSeconds = false;
+      };
+
       dock = {
         autohide = true;
         show-recents = false;
@@ -70,6 +79,10 @@ let user = "svenlito"; in
 
       finder = {
         _FXShowPosixPathInTitle = false;
+        AppleShowAllFiles = true; 
+        CreateDesktop = true;
+        ShowPathbar = true;
+        ShowStatusBar = true;
       };
 
       trackpad = {
