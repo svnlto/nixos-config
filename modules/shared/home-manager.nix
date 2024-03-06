@@ -137,6 +137,9 @@ let name = "Sven Lito";
       };
       pull.rebase = true;
       rebase.autoStash = true;
+      credential = {
+        helper = "osxkeychain";
+      };
     };
   };
 
