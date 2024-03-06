@@ -110,6 +110,31 @@ let name = "Sven Lito";
         editor = "vim";
         autocrlf = "input";
       };
+      color = { 
+        ui = "always";
+        diff = {
+          meta = "yellow";
+          frag = "magenta bold";
+          commit = "yellow bold";
+          old = "red bold";
+          new = "green bold";
+          whitespace = "red reverse";
+        };
+        diff-highlight = {
+          oldNormal = "red bold";
+          oldHighlight = "red bold 52";
+          newNormal = "green bold";
+          newHighlight = "green bold 22";
+        };
+      };
+      commit = {
+        gpgSign = true;
+        status = true;
+        verbose = true;
+      };
+      merge = {
+        verbosity = 5;
+      };
       pull.rebase = true;
       rebase.autoStash = true;
     };
@@ -153,6 +178,79 @@ let name = "Sven Lito";
         pr = "pr status";
       };
     };
+  };
+
+  tmux = {
+    enable = true;
+    shell = "${pkgs.zsh}/bin/zsh";
+    extraConfig = ''
+      set -g history-limit 10000
+
+      set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
+      set-option -g default-terminal "screen-256color"
+
+      # start windows and panes at 1
+      set -g base-index 1
+      set -g pane-base-index 1
+
+      # use vi mode
+      setw -g mode-keys vi
+
+      # don't detach tmux when killing a session
+      set -g detach-on-destroy off
+
+      # focus events enabled for terminals that support them
+      set -g focus-events on
+
+      # Setup 'v' to begin selection as in Vim
+      bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+      bind-key -Tcopy-mode-vi 'y' send -X copy-pipe "reattach-to-user-namespace pbcopy"
+
+      # Update default binding of `Enter` to also use copy-pipe
+      unbind -Tcopy-mode Enter
+      bind-key -Tcopy-mode Enter send -X copy-pipe "reattach-to-user-namespace pbcopy"
+
+      # remap prefix to Control + a
+      set -g prefix C-a
+      unbind C-b
+      bind C-a send-prefix
+
+      # move around panes with hjkl, as one would in vim after pressing ctrl-w
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      # force a reload of the config file
+      unbind r
+      bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+      # quick pane cycling with Ctrl-a
+      unbind ^A
+      bind ^A select-pane -t :.+
+
+      set -g mouse on
+
+      bind-key -T copy-mode-vi WheelUpPane send -X scroll-up
+      bind-key -T copy-mode-vi WheelDownPane send -X scroll-down
+
+      setw -g mode-keys vi
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+      bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" \; display-message "highlighted selection copied to system clipboard"
+
+      # resize panes
+      bind Right resize-pane -R 8
+      bind Left resize-pane -L 8
+      bind Up resize-pane -U 4
+      bind Down resize-pane -D 4
+
+      # New window with default path set to last path
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+    '';
   };
 
 }

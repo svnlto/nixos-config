@@ -4,6 +4,7 @@ with pkgs;
 let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
 shared-packages ++ [
   dockutil
+  tmux
   eza
   diff-so-fancy
   spaceship-prompt
