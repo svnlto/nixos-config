@@ -104,6 +104,9 @@ let name = "Sven Lito";
       enable = true;
     };
     extraConfig = {
+      user = {
+        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFYK1c6kxYT6FzMEqckP04e2unQgTvFPyNEFzT/q/eXR";
+      };
       init.defaultBranch = "main";
       core = { 
         pager = "diff-so-fancy | less --tabs=2 -RFX";
@@ -125,6 +128,12 @@ let name = "Sven Lito";
           oldHighlight = "red bold 52";
           newNormal = "green bold";
           newHighlight = "green bold 22";
+        };
+      };
+      gpg = {
+        format = "ssh";
+        ssh = {
+          program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };
       };
       commit = {
