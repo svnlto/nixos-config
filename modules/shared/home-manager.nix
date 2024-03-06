@@ -137,9 +137,7 @@ let name = "Sven Lito";
         };
       };
       commit = {
-        gpgSign = true;
-        status = true;
-        verbose = true;
+        gpgsign = true;
       };
       merge = {
         verbosity = 5;
