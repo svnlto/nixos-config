@@ -135,7 +135,9 @@ let name = "Sven Lito";
       merge = {
         verbosity = 5;
       };
-      pull.rebase = true;
+      pull = {
+        rebase = "true";
+      };
       rebase.autoStash = true;
       credential = {
         helper = "osxkeychain";
