@@ -105,7 +105,7 @@ let name = "Sven Lito";
     };
     extraConfig = {
       user = {
-        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFYK1c6kxYT6FzMEqckP04e2unQgTvFPyNEFzT/q/eXR";
+        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFYK1c6kxYT6FzMEqckP04e2unQgTvFPyNEFzT/q/eXR";
       };
       init.defaultBranch = "main";
       core = { 
