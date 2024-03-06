@@ -11,4 +11,6 @@ _:
   "orbstack"
   "1password"
   "gather"
+  "monodraw"
+  "github"
 ]

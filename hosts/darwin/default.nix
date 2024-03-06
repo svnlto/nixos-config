@@ -61,7 +61,7 @@ let user = "svenlito"; in
       };
 
       menuExtraClock = {
-        Show24Hour = false;
+        Show24Hour = true;
         IsAnalog = false;
         ShowAMPM = false;
         ShowDayOfMonth = true;

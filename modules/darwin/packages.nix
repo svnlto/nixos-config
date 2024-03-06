@@ -10,4 +10,7 @@ shared-packages ++ [
   tflint
   tfswitch
   pre-commit
+  aliyun-cli
+  awscli2
+  google-cloud-sdk
 ]
