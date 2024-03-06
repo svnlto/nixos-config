@@ -113,22 +113,19 @@ let name = "Sven Lito";
         editor = "vim";
         autocrlf = "input";
       };
-      color = { 
-        ui = "always";
-        diff = {
-          meta = "yellow";
-          frag = "magenta bold";
-          commit = "yellow bold";
-          old = "red bold";
-          new = "green bold";
-          whitespace = "red reverse";
-        };
-        diff-highlight = {
-          oldNormal = "red bold";
-          oldHighlight = "red bold 52";
-          newNormal = "green bold";
-          newHighlight = "green bold 22";
-        };
+      color.diff = {
+        meta = "yellow";
+        frag = "magenta bold";
+        commit = "yellow bold";
+        old = "red bold";
+        new = "green bold";
+        whitespace = "red reverse";
+      };
+      diff-highlight = {
+        oldNormal = "red bold";
+        oldHighlight = "red bold 52";
+        newNormal = "green bold";
+        newHighlight = "green bold 22";
       };
       gpg = {
         format = "ssh";
