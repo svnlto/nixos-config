@@ -92,7 +92,7 @@ let name = "Sven Lito";
       alias l='eza -l --color=always'
       alias c='clear'
       alias h='history'
-
+      alias cat='bat'
     '';
   };
 
@@ -154,7 +154,7 @@ let name = "Sven Lito";
           ForwardX11Trusted yes
           ForwardX11 yes
           ForwardAgent yes
-	  ServerAliveInterval 240
+	        ServerAliveInterval 240
         '')
     ];
   };

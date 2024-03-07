@@ -18,6 +18,5 @@ shared-packages ++ [
 
   packer
   consul
-  vagrant
   vault
 ]
