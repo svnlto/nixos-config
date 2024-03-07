@@ -15,13 +15,14 @@ let name = "Sven Lito";
       enable = true;
     };
 
+    historySubstringSearch= {
+      enable = true;
+    };
+
     antidote = {
       enable = true;
       plugins = [
-        "zsh-users/zsh-autosuggestions"
-        "zsh-users/zsh-syntax-highlighting"
         "zsh-users/zsh-completions"
-        "zsh-users/zsh-history-substring-search"
         "robbyrussell/oh-my-zsh path:plugins/git"
         "robbyrussell/oh-my-zsh path:plugins/command-not-found"
         "robbyrussell/oh-my-zsh path:plugins/common-aliases"
@@ -113,20 +114,6 @@ let name = "Sven Lito";
         editor = "vim";
         autocrlf = "input";
       };
-      color.diff = {
-        meta = "yellow";
-        frag = "magenta bold";
-        commit = "yellow bold";
-        old = "red bold";
-        new = "green bold";
-        whitespace = "red reverse";
-      };
-      diff-highlight = {
-        oldNormal = "red bold";
-        oldHighlight = "red bold 52";
-        newNormal = "green bold";
-        newHighlight = "green bold 22";
-      };
       gpg = {
         format = "ssh";
         ssh = {
@@ -167,6 +154,7 @@ let name = "Sven Lito";
           ForwardX11Trusted yes
           ForwardX11 yes
           ForwardAgent yes
+	  ServerAliveInterval 240
         '')
     ];
   };

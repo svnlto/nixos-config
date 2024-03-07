@@ -14,4 +14,10 @@ shared-packages ++ [
   aliyun-cli
   awscli2
   google-cloud-sdk
+  granted
+
+  packer
+  consul
+  vagrant
+  vault
 ]
