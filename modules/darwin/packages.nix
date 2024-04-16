@@ -15,6 +15,8 @@ shared-packages ++ [
   awscli2
   google-cloud-sdk
   granted
+  lazygit
+  wireshark
 
   packer
   consul

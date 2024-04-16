@@ -13,4 +13,12 @@ _:
   "gather"
   "monodraw"
   "github"
+  "raycast"
+  "cleanshot"
+  "loom"
+  "notion"
+  "notion-calendar"
+  "obsidian"
+  "iterm2"
+  "tailscale"
 ]

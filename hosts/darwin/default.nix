@@ -63,7 +63,7 @@ let user = "svenlito"; in
       menuExtraClock = {
         Show24Hour = true;
         IsAnalog = false;
-        ShowAMPM = false;
+        ShowAMPM = true;
         ShowDayOfMonth = true;
         ShowDayOfWeek = true;
         ShowSeconds = false;
@@ -86,7 +86,7 @@ let user = "svenlito"; in
       };
 
       trackpad = {
-        Clicking = true;
+        Clicking = false;
         TrackpadThreeFingerDrag = true;
       };
     };

@@ -58,7 +58,7 @@ let name = "Sven Lito";
       export EDITOR="vim"
       export VISUAL="code"
 
-      export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+      export SSH_AUTH_SOCK=~/.1password/agent.sock
 
       # Always color ls and group directories
       alias ls='ls --color=auto'
@@ -92,7 +92,7 @@ let name = "Sven Lito";
       alias l='eza -l --color=always'
       alias c='clear'
       alias h='history'
-      alias cat='bat'
+      alias cat='bat -p'
     '';
   };
 
@@ -139,23 +139,21 @@ let name = "Sven Lito";
   ssh = {
     enable = true;
 
+    userKnownHostsFile = "/dev/null";
+
     extraConfig = lib.mkMerge [
       ''
         Host snocko-vm
-          HostName 13.228.251.47
+          HostName 100.65.204.61
           User svenlito
           Port 22
           Compression yes
-      ''
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 
-        ''
-        Host *
-          IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
           ForwardX11Trusted yes
           ForwardX11 yes
           ForwardAgent yes
-	        ServerAliveInterval 240
-        '')
+          ServerAliveInterval 240
+          IdentityAgent ~/.1password/agent.sock
+      ''
     ];
   };
 
